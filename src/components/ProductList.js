@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Card, Button, Row, Col, Carousel, Tag } from 'antd';
 import axios from 'axios';
 import { HeartOutlined } from '@ant-design/icons';
 import './ProductList.css';
 import { ShoppingCartOutlined } from '@ant-design/icons';
+import { CartContext } from '../contexts/CartContext';
 
 const dummyImage = 'https://via.placeholder.com/200';
 
-const ProductList = ({ addToCart }) => {
+const ProductList = () => {
   const [products, setProducts] = useState([]);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     axios.get('https://dummyjson.com/products')
@@ -22,6 +24,8 @@ const ProductList = ({ addToCart }) => {
 
   return (
     <div className='product-list__container'>
+                    {console.log("workibg")}
+
           <Row gutter={[16, 16]}>
       {products.map(product => (
         <Col key={product.id} xs={24} sm={12} md={8} lg={6}>

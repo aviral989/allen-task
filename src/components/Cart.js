@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { List, Button } from 'antd';
 import {INR_FORMAT} from '../constant'
-const Cart = ({ cart, incrementQuantity, decrementQuantity }) => {
+import { CartContext } from '../contexts/CartContext';
+
+const Cart = () => {
+  const { cart, incrementQuantity, decrementQuantity } = useContext(CartContext);
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (

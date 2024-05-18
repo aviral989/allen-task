@@ -38,3 +38,11 @@
   background: var(--button-color);
   border-color: var(--button-color);
 }
+
+.main-layout {
+  padding: 0 50px; 
+  margin-top: 20px;
+  @media screen and (max-width: 425px) {
+      padding: 0 20px; 
+  }
+}
